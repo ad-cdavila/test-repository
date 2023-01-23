@@ -13,3 +13,5 @@ jobs:
 
       - name: Test variables
         uses: ./.github/actions/setup-vars
+        with:
+          test: ${{ vars.TEST }}
