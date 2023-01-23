@@ -15,3 +15,7 @@ jobs:
         uses: ./.github/actions/setup-vars
         with:
           test: ${{ vars.TEST }}
+
+  reusing:
+    name: Reusing
+    uses: ./.github/workflows/reusable.yml
