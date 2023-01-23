@@ -11,4 +11,5 @@ runs:
     - name: Set Up Environment Variables
       run: |
         echo ${{ inputs.test }}
+        echo $TEST
       shell: bash
