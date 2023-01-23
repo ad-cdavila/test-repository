@@ -1,0 +1,13 @@
+name: Reusable
+
+# Controls when the workflow will run. "workflow_call" allows you to reuse this workflow in others workflows
+on:
+  workflow_call:
+
+jobs:
+  android_build:
+    name: Build Release
+    runs-on: ubuntu-latest
+
+    steps:
+      - run: echo ${{ vars.TEST }}

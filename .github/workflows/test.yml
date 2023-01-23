@@ -1,13 +1,23 @@
 name: Pull Request updated
 
-on:
-  pull_request:
-    types: [opened, synchronize]
+on: push
 
 jobs:
-  history:
-    name: Pull Request Body
+  test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
-      - name: Pull Request Body
-        uses: technote-space/pr-commit-body-action@v1
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: 📥 Checkout Git Repository
+        uses: actions/checkout@v3
+
+      - name: Test variables
+        uses: ./.github/actions/setup-vars
+        with:
+          test: ${{ vars.TEST }}
+        env:
+          TEST: ${{ vars.TEST }}
+
+  reusing:
+    name: Reusing
+    uses: ./.github/workflows/reusable.yml
