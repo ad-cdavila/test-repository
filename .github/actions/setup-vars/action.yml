@@ -1,0 +1,10 @@
+name: Set Up Environment
+description: Set up environment variables and creates the environment file
+
+runs:
+  using: composite
+  steps:
+    - name: Set Up Environment Variables
+      run: |
+        echo ${{ vars.TEST }}
+      shell: bash

@@ -1,13 +1,11 @@
 name: Pull Request updated
 
-on:
-  pull_request:
-    types: [opened, synchronize]
+on: push
 
 jobs:
-  history:
-    name: Pull Request Body
+  test:
+    name: Test
     runs-on: ubuntu-latest
     steps:
-      - name: Pull Request Body
-        uses: technote-space/pr-commit-body-action@v1
+      - name: Test variables
+        uses: ./.github/actions/setup-vars
