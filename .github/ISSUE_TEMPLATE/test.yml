@@ -6,6 +6,5 @@ body:
     attributes:
       label: PRs included in this release
       description: Please include all the PRs to be included in this release
-      render: Markdown
     validations:
       required: true
