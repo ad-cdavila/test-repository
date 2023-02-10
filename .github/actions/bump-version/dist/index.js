@@ -7552,6 +7552,8 @@ const core = __nccwpck_require__(5373);
 const semver = __nccwpck_require__(9051);
 const gitLatestSemverTag = __nccwpck_require__(2495);
 
+const { exec, execSync } = __nccwpck_require__(2081);
+
 const SUPPORTED_RELEASES = ['major', 'minor', 'patch'];
 
 const getLatestTag = () => new Promise((resolve, reject) => {
@@ -7564,6 +7566,8 @@ const getLatestTag = () => new Promise((resolve, reject) => {
 
 (async () => {
   try {
+    execSync('git fetch --tags');
+
     let latestTag = await getLatestTag();
 
     if (!latestTag) {
