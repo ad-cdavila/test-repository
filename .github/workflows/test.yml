@@ -15,5 +15,5 @@ jobs:
         uses: progovoy/vmn-action@vmna_0.1.17
         with:
           stamp-mode: patch
-          app-name: ''
+          app-name: 'test'
       - run: echo ${{ steps.bump.outputs.verstr }}
