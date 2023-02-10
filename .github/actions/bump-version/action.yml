@@ -11,20 +11,7 @@ inputs:
 outputs:
   bump-version:
     description: Incremented version calculated
-    value: ${{ steps.version-increment.outputs.bump_version }}
 
 runs:
-  using: composite
-  steps:
-    - run: |
-        npm i -g semver
-        npm i -g git-latest-semver-tag
-      shell: bash
-
-    - id: version-lookup
-      run: echo "current_version=$(git-latest-semver-tag)" >> $GITHUB_OUTPUT
-      shell: bash
-
-    - id: version-increment
-      run: echo "bump_version=${ semver -i ${{ inputs.increment }} ${{ steps.version-lookup.outputs.current_version }} }" >> $GITHUB_OUTPUT
-      shell: bash
+  using: node16
+  main: dist/index.js
