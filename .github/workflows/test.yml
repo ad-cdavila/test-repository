@@ -1,7 +1,6 @@
 name: Bump Patch test
 
-on:
-  workflow_dispatch
+on: workflow_dispatch
 
 jobs:
   history:
@@ -10,6 +9,9 @@ jobs:
     steps:
       - name: 📥 Checkout Git Repository
         uses: actions/checkout@v3
+        with:
+          ref: ${{ github.ref }}
+          fetch-depth: 0
       - name: Bump
         id: bump
         uses: ./.github/actions/bump-version
