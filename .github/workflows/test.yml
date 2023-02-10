@@ -10,12 +10,7 @@ jobs:
     steps:
       - name: Bump
         id: bump
-        uses: phips28/gh-action-bump-version@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: lhstrh/action-repo-semver@v1.1.2
         with:
-          version-type: patch
-          skip-tag: true
-          skip-commit: true
-          skip-push: true
-      - run: echo ${{ steps.bump.outputs }}
+          bump: patch
+      - run: echo ${{ steps.bump.outputs.tag }}
