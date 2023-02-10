@@ -1,13 +1,21 @@
-name: Pull Request updated
+name: Bump Patch test
 
 on:
-  pull_request:
-    types: [opened, synchronize]
+  workflow_dispatch
 
 jobs:
   history:
-    name: Pull Request Body
+    name: Bump
     runs-on: ubuntu-latest
     steps:
-      - name: Pull Request Body
-        uses: technote-space/pr-commit-body-action@v1
+      - name: Bump
+        id: bump
+        uses: phips28/gh-action-bump-version@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          version-type: patch
+          skip-tag: true
+          skip-commit: true
+          skip-push: true
+      - run: echo ${{ steps.bump.outputs }}
