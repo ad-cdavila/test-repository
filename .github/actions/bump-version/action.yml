@@ -1,0 +1,30 @@
+name: Bump Version
+description: Inspects the git tags to determine the current normal version, and returns the next version number
+
+inputs:
+  increment:
+    description: |
+      Field to increment - major, minor, or, patch (defaults to patch)
+    required: false
+    default: patch
+
+outputs:
+  bump-version:
+    description: Incremented version calculated
+    value: ${{ steps.version-increment.outputs.bump_version }}
+
+runs:
+  using: composite
+  steps:
+    - run: |
+        npm i -g semver
+        npm i -g git-latest-semver-tag
+      shell: bash
+
+    - id: version-lookup
+      run: echo "current_version=${ git-latest-semver-tag }" >> $GITHUB_OUTPUT
+      shell: bash
+
+    - id: version-increment
+      run: echo "bump_version=${ semver -i ${{ inputs.increment }} ${{ steps.version-lookup.outputs.current_version }} }" >> $GITHUB_OUTPUT
+      shell: bash
