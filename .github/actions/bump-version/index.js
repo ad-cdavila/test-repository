@@ -2,8 +2,6 @@ const core = require('@actions/core');
 const semver = require('semver');
 const gitLatestSemverTag = require('git-latest-semver-tag');
 
-const { exec, execSync } = require("child_process");
-
 const SUPPORTED_RELEASES = ['major', 'minor', 'patch'];
 
 const getLatestTag = () => new Promise((resolve, reject) => {
@@ -16,8 +14,6 @@ const getLatestTag = () => new Promise((resolve, reject) => {
 
 (async () => {
   try {
-    execSync('git fetch --tags');
-
     let latestTag = await getLatestTag();
 
     if (!latestTag) {
