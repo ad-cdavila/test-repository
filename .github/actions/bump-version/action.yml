@@ -22,7 +22,7 @@ runs:
       shell: bash
 
     - id: version-lookup
-      run: echo "current_version=${ git-latest-semver-tag }" >> $GITHUB_OUTPUT
+      run: echo "current_version=$(git-latest-semver-tag)" >> $GITHUB_OUTPUT
       shell: bash
 
     - id: version-increment
