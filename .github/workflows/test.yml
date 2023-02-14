@@ -23,6 +23,6 @@ jobs:
         id: app-version
         run: npm ci && npm run release
 
-      - run: git status
+      - run: echo ${{ steps.app-version.outputs.version }}
 
       - run: cat CHANGELOG.md

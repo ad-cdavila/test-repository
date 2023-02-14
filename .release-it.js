@@ -1,7 +1,8 @@
 module.exports = {
-  git: {
-    tag: false,
-    commitMessage: "chore(release): v${version}"
+  git: false,
+  npm: false,
+  hooks: {
+    "after:release": "echo 'version=v${version}' >> $GITHUB_OUTPUT"
   },
   plugins: {
     "@release-it/bumper": {
