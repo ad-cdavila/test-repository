@@ -1,9 +1,9 @@
 module.exports = {
+  git: {
+    tag: false,
+    commitMessage: "chore(release): v${version}"
+  },
   plugins: {
-    git: {
-      tag: false,
-      commitMessage: "chore(release): v${version}"
-    },
     "@release-it/bumper": {
       in: {
         "file": "app.json",
