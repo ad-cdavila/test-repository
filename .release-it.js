@@ -29,7 +29,7 @@ module.exports = {
             "section": ":bug: Bug Fixes"
           },
           {
-            type: "BREAKING CHANGE",
+            type: "breaking",
             section: "🚨 Breaking Changes"
           }
         ]
