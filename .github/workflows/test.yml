@@ -21,7 +21,7 @@ jobs:
 
       - name: 🏗 Versioning
         id: app-version
-        run: npm run release
+        run: npm ci && npm run release
 
       - run: git status
 
