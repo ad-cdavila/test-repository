@@ -1,0 +1,26 @@
+{
+  "name": "test-repository",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "release-it --no-npm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ad-cdavila/test-repository.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ad-cdavila/test-repository/issues"
+  },
+  "homepage": "https://github.com/ad-cdavila/test-repository#readme",
+  "dependencies": {
+    "@favoloso/conventional-changelog-emoji": "^0.10.0",
+    "@release-it/bumper": "^4.0.2",
+    "@release-it/conventional-changelog": "^5.1.1",
+    "release-it": "^15.6.0"
+  }
+}

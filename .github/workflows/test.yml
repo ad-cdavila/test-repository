@@ -12,16 +12,17 @@ jobs:
         with:
           ref: ${{ github.ref }}
           fetch-depth: 0
+
+      - name: 🏗 Set Up Node 16.8.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.8.0
+          cache: "npm"
+
       - name: 🏗 Versioning
         id: app-version
-        uses: go-semantic-release/action@v1
-        with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          changelog-file: CHANGELOG.md
-          update-file: app.json
-          changelog-generator-opt: "emojis=true"
-          dry: true
-          
+        run: npm run release
+
       - run: git status
-      
+
       - run: cat CHANGELOG.md
